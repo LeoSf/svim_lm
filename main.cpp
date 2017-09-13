@@ -2,8 +2,12 @@
 
 using namespace std;
 
-int main(int argc, char *argv[])
+/*!
+ * \brief función main
+ * \return 0: salida normal
+ */
+int main()
 {
-    cout << "Hello World!" << endl;
+    cout << "SVIM Project" << endl;
     return 0;
 }
