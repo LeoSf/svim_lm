@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     imagen.cpp \
     pixel.cpp \
     archivador.cpp \
-    arhivadormif.cpp
+    arhivadormif.cpp \
+    metadatos.cpp
 
 HEADERS += \
     interfaz.h \
@@ -17,7 +18,8 @@ HEADERS += \
     imagen.h \
     pixel.h \
     archivador.h \
-    arhivadormif.h
+    arhivadormif.h \
+    metadatos.h
 
 DISTFILES += \
     requerimientos.md \
