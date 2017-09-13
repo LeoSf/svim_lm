@@ -18,3 +18,7 @@ HEADERS += \
     pixel.h \
     archivador.h \
     arhivadormif.h
+
+DISTFILES += \
+    requerimientos.md \
+    README.md
