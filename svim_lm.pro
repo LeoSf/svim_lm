@@ -8,11 +8,13 @@ SOURCES += main.cpp \
     sistema.cpp \
     imagen.cpp \
     pixel.cpp \
-    archivador.cpp
+    archivador.cpp \
+    arhivadormif.cpp
 
 HEADERS += \
     interfaz.h \
     sistema.h \
     imagen.h \
     pixel.h \
-    archivador.h
+    archivador.h \
+    arhivadormif.h
