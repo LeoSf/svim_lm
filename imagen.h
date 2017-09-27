@@ -56,6 +56,7 @@ public:
     string getUnitOfMeasurement() const;
 
     /* Public methods to manipulate an image */
+//    void loadMetadata()
     /*!
      * \brief Método para setear un valor de un pixel en la imagen
      * \param x: coordenada en x [px]
@@ -67,9 +68,9 @@ public:
      * \brief getPixel
      * \param x: coordenada en x [px]
      * \param y: coordenada en y [px]
-     * \return puntero a un objeto tipo Pixel de la imagen.
+     * \return referencia a un objeto tipo Pixel de la imagen.
      */
-    Pixel * getPixel(unsigned int x, unsigned int y) const;
+    Pixel & getPixel(unsigned int x, unsigned int y) const;
 
     /* Sobrecarga de operadores */
     /*!
@@ -79,9 +80,19 @@ public:
      * imagen(x,y) = imagen(x,y)+1; si la suma estaría definida.
      * \param x: coordenada en x [px]
      * \param y: coordenada en y [px]
-     * \return puntero al pixel.
+     * \return referencia al pixel.
      */
-    Pixel * operator()(unsigned int x, unsigned int y);
+    Pixel & operator()(unsigned int x, unsigned int y);
+    /*!
+     * \brief operator [] para acceder a un pixel mediante sus
+     * coordenadas x e y, y a su vez modificarlo. Esto permitiría
+     * modificar el brillo de un pixel como:
+     * imagen[x][y] = imagen[x][y]+1; si la suma estaría definida.
+     * \param index
+     * \return referencia al pixel.
+     */
+    Pixel & operator[](unsigned int index);
+
 
 };
 

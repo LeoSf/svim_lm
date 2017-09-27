@@ -66,14 +66,19 @@ void Imagen::setPixel(unsigned int x, unsigned int y, const Pixel &dataPixel)
 
 }
 
-Pixel *Imagen::getPixel(unsigned int x, unsigned int y) const
+Pixel & Imagen::getPixel(unsigned int x, unsigned int y) const
 {
 
 }
 
 /* ------------------ Sobrecarga de operadores ------------------- */
 
-Pixel *Imagen::operator()(unsigned int x, unsigned int y)
+Pixel & Imagen::operator()(unsigned int x, unsigned int y)
+{
+
+}
+
+Pixel & Imagen::operator[](unsigned int index)
 {
 
 }

@@ -8,6 +8,8 @@
  */
 class ArhivadorMIF : public Archivador
 {
+private:
+
 public:
     ArhivadorMIF();
 };
