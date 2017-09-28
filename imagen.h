@@ -31,8 +31,8 @@ private:
     /*! Unidad físca de medida empleada para medir la imagen */
     string unitOfMeasurement;
 
-    /* Metadatos de la imagen */
-    Metadatos metadatos;
+    /* Metadatos de la imagen -- implementación báscia -- */
+    string metadatos;
 
     /* pixeles de la imagen en formato mxn */
     vector<vector<Pixel>> pixels;
@@ -46,6 +46,7 @@ public:
     void setYSizePx(unsigned int value);
     void setXSize(unsigned int value);
     void setYSize(unsigned int value);
+    void setMetadatos(const string &value);
     void setUnitOfMeasurement(const string &value);
 
     /* Getters */
@@ -53,10 +54,16 @@ public:
     unsigned int getYSizePx() const;
     unsigned int getXSize() const;
     unsigned int getYSize() const;
+    string getMetadatos() const;
     string getUnitOfMeasurement() const;
 
     /* Public methods to manipulate an image */
-//    void loadMetadata()
+    /**
+     * @brief Método para redimensionar la imagen en función de los valores de
+     * xSizePx y ySizePx que determinarán las dimensiones de la matriz de pixeles.
+     */
+    void resizeImage();
+
     /*!
      * \brief Método para setear un valor de un pixel en la imagen
      * \param x: coordenada en x [px]
@@ -70,7 +77,7 @@ public:
      * \param y: coordenada en y [px]
      * \return referencia a un objeto tipo Pixel de la imagen.
      */
-    Pixel & getPixel(unsigned int x, unsigned int y) const;
+    Pixel & getPixel(unsigned int x, unsigned int y);
 
     /* Sobrecarga de operadores */
     /*!
@@ -91,7 +98,9 @@ public:
      * \param index
      * \return referencia al pixel.
      */
-    Pixel & operator[](unsigned int index);
+//    Pixel & operator[](unsigned int index);
+
+
 
 
 };
