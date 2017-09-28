@@ -46,6 +46,13 @@ void Pixel::setBlue(float value)
     blue = value;
 }
 
+void Pixel::setRGB(float redValue, float greenValue, float blueValue)
+{
+    red = redValue;
+    green = greenValue;
+    blue = blueValue;
+}
+
 float Pixel::getRed() const
 {
     return red;

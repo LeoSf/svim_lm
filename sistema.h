@@ -13,7 +13,7 @@ private:
 public:
     Sistema();
     void testImagenAndPixel();
-    void testArchivos();
+    void testArchivador();
 };
 
 #endif // SISTEMA_H

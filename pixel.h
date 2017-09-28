@@ -60,6 +60,12 @@ public:
      */
     void setBlue(float value);
 
+    /*!
+     * \brief Ajuste del valor de Rojo, Verde y Azul
+     * \param valores de punto flotante entre [0,1]
+     */
+    void setRGB(float redValue, float greenValue, float blueValue);
+
     /* Métodos getters */
     /*!
      * \brief Función para devolver el valor de Rojo
