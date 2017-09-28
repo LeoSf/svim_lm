@@ -1,7 +1,11 @@
+QT += core widgets
+QT -= gui
+
 TEMPLATE = app
+
 CONFIG += console c++11
 CONFIG -= app_bundle
-CONFIG -= qt
+#CONFIG -= qt
 
 SOURCES += main.cpp \
     interfaz.cpp \
@@ -10,7 +14,8 @@ SOURCES += main.cpp \
     pixel.cpp \
     archivador.cpp \
     arhivadormif.cpp \
-    metadatos.cpp
+    metadatos.cpp \
+    graficador.cpp
 
 HEADERS += \
     interfaz.h \
@@ -19,7 +24,8 @@ HEADERS += \
     pixel.h \
     archivador.h \
     arhivadormif.h \
-    metadatos.h
+    metadatos.h \
+    graficador.h
 
 DISTFILES += \
     requerimientos.md \

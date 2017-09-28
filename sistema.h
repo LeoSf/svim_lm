@@ -14,6 +14,7 @@ public:
     Sistema();
     void testImagenAndPixel();
     void testArchivador();
+    void testGraficador(int argc, char *argv[]);
 };
 
 #endif // SISTEMA_H
