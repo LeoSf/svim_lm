@@ -81,9 +81,8 @@ bool ArhivadorMIF::loadImage(std::string nombre, Imagen &img)
 
         if(infile.is_open())
         {
-            unsigned short S;
-            float R, G, B;
             Pixel pix;
+            unsigned short S;
 
             infile.seekg(offsetBinaryPosition);
 
@@ -91,19 +90,19 @@ bool ArhivadorMIF::loadImage(std::string nombre, Imagen &img)
                 for(unsigned ix=0 ; ix<xPxLeido ; ++ix)
                 {
                     infile.read((char*)&S , sizeof(unsigned short));
+                    pix.setRed(S/65535.0f);
                     infile.read((char*)&S , sizeof(unsigned short));
+                    pix.setGreen(S/65535.0f);
                     infile.read((char*)&S , sizeof(unsigned short));
-                    R=S/65535.0f;
-                    G=S/65535.0f;
-                    B=S/65535.0f;
-                    pix.setRGB(R,G,B);
+                    pix.setBlue(S/65535.0f);
+
                     img.setPixel(ix,iy,pix);
                 }
             infile.close();
         }
         else
         {
-            /** Problema al leer el archivo en modo texto */
+            /** Problema al leer el archivo en modo binario */
             result = false;
         }
     }
