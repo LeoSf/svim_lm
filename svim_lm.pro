@@ -25,6 +25,7 @@ HEADERS += \
     archivador.h \
     arhivadormif.h \
     metadatos.h \
+    defines.h \
     graficador.h
 
 DISTFILES += \

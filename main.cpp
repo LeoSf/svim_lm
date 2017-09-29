@@ -12,10 +12,10 @@ int main(int argc, char *argv[])
     Sistema sis;
 
     /** Test de la implementación de Imagen y Pixel */
-//    sis.testImagenAndPixel();
+    // sis.testImagenAndPixel();
 
     /** Test de la lectura de un archivo */
-//    sis.testArchivador();
+    // sis.testArchivador();
 
     /** Test de graficación de una imagen */
     sis.testGraficador(argc, argv);
