@@ -19,7 +19,8 @@ HEADERS += \
     pixel.h \
     archivador.h \
     arhivadormif.h \
-    metadatos.h
+    metadatos.h \
+    defines.h
 
 DISTFILES += \
     requerimientos.md \

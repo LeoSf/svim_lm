@@ -1,22 +1,23 @@
 #include "arhivadormif.h"
 #include <fstream>
 #include <cstring>
+#include "defines.h"
 
 using std::string;
 using std::ifstream;
+using std::ofstream;
 using std::ios;
+using std::endl;
 
 ArhivadorMIF::ArhivadorMIF()
 {
-
+    /** Nothing to do here */
 }
 
-bool ArhivadorMIF::loadImage(std::string nombre, Imagen &img)
+bool ArhivadorMIF::loadImage(string nombre, Imagen &img)
 {
-
+    /** Resultado de la operación de lectura */
     bool result = false;
-    string relPath = "../svim_lm/imags/";
-    string mif = ".mif";
 
     /** Posición en bytes del comienzo de la lectura de la parte
         binaria del archivo */
@@ -30,7 +31,6 @@ bool ArhivadorMIF::loadImage(std::string nombre, Imagen &img)
     float xLeido, yLeido;
     string unidadLeida;
     string metadatosLeidos;
-
 
     ifstream infile;
     /** Verificación de la extensión del archivo */
@@ -117,6 +117,59 @@ bool ArhivadorMIF::loadImage(std::string nombre, Imagen &img)
 bool ArhivadorMIF::saveImage(std::string nombre, Imagen &img)
 {
     bool result = false;
+
+    ofstream outfile;
+
+    /** path completo del archivo a leer */
+    nombre = relPath + nombre;
+
+    /* Escritura de los atributos y metadatos en modo texto */
+    outfile.open(nombre.c_str());
+
+    if(outfile.is_open())
+    {
+        /** Atributos de la imagen */
+        outfile << img.getXSizePx() << ";" << img.getYSizePx() << ";" << img.getXSize()
+                << ";" << img.getYSize() << ";" << img.getUnitOfMeasurement() << endl;
+        /** Metadatos de la imagen */
+        outfile << img.getMetadatos() << endl;
+        outfile.close();
+
+        /* Escritura de los pixeles en modo binario */
+        outfile.open(nombre.c_str(), ios::binary | ios::out | ios::app);
+
+        if(outfile.is_open())
+        {
+            unsigned short usData;
+
+            for(unsigned iy=0 ; iy<img.getYSizePx() ; ++iy)
+                for(unsigned ix=0 ; ix < img.getXSizePx() ; ++ix)
+                {
+                    usData = img(ix,iy).getRed() * 65535;
+                    outfile.write((char*)&usData , sizeof(unsigned short) );
+
+                    usData = img(ix,iy).getGreen() * 65535;
+                    outfile.write((char*)&usData , sizeof(unsigned short) );
+
+                    usData = img(ix,iy).getBlue() * 65535;
+                    outfile.write((char*)&usData , sizeof(unsigned short) );
+                }
+            outfile.close();
+
+            /** Se completó con la escritura de atributos, metadatos y valores de pixeles */
+            result = true;
+        }
+        else
+        {
+            /** Problema al abrir el archivo en modo binario */
+            result = false;
+        }
+    }
+    else
+    {
+        /** Problema al abrir el archivo en modo texto para guardar la imagen */
+        result = false;
+    }
 
     return result;
 }

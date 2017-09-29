@@ -5,6 +5,8 @@
 
 using namespace std;
 
+const unsigned int N_DECIMALES = 2;
+
 Sistema::Sistema()
 {
 
@@ -19,7 +21,8 @@ void Sistema::printImagenPorConsola(Imagen &img)
     for(unsigned int iy=0; iy<img.getYSizePx(); iy++)
     {
         for(unsigned int ix=0; ix<img.getXSizePx(); ix++)
-            cout << img(ix,iy).getRed() << " ";
+            cout << std::setprecision(N_DECIMALES)
+                 << img(ix,iy).getRed() << " ";
         cout << endl;
     }
     cout << endl;
@@ -51,20 +54,23 @@ void Sistema::testImagenAndPixel()
 
 void Sistema::testArchivador()
 {
-    Imagen img;
-//    Pixel pix;
+    string inFileName = "patt01.mif";
+    string outFileName = "patt01-mod.mif";
+
+    Imagen img, img2;
+    Pixel pix;
     ArhivadorMIF archiMif;
 
     cout << "Prueba de la lectura de una imagen \n";
-
-    string file = "patt01.mif";
-
-    archiMif.loadImage(file,img);
-
+    archiMif.loadImage(inFileName,img);
     printImagenPorConsola(img);
 
+    img.setPixel(0,0,pix);
+    img.setPixel(0,1,pix);
+    img.setPixel(0,2,pix);
+    img.setPixel(0,3,pix);
+    archiMif.saveImage(outFileName,img);
 
-
-
-
+    archiMif.loadImage(outFileName,img2);
+    printImagenPorConsola(img2);
 }

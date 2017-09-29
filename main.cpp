@@ -12,7 +12,7 @@ int main()
     Sistema sis;
 
     /** Test de la implementación de Imagen y Pixel */
-//    sis.testImagenAndPixel();
+    // sis.testImagenAndPixel();
 
     /** Test de la lectura de un archivo */
     sis.testArchivador();
