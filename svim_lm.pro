@@ -14,7 +14,7 @@ SOURCES += main.cpp \
     pixel.cpp \
     archivador.cpp \
     arhivadormif.cpp \
-    metadatos.cpp \
+#    metadatos.cpp \
     graficador.cpp
 
 HEADERS += \
@@ -24,7 +24,7 @@ HEADERS += \
     pixel.h \
     archivador.h \
     arhivadormif.h \
-    metadatos.h \
+#    metadatos.h \
     defines.h \
     graficador.h
 

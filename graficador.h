@@ -10,7 +10,6 @@ private:
     Imagen * img;
 
     float escala;
-
     float offsetX;
     float offsetY;
 
@@ -19,7 +18,7 @@ private:
 protected:
     virtual void initializeGL();
     virtual void paintGL();
-    virtual void    resizeGL(int ancho, int alto);
+    virtual void resizeGL(int ancho, int alto);
 
 public:
     Graficador(QWidget * parent = 0);

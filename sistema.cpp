@@ -50,6 +50,10 @@ void Sistema::testImagenAndPixel()
     img.setPixel(4,6,pix);
     img.setPixel(5,9,pix);
 
+    img[2][3] = pix;
+    img[3][3] = img[3][3] + 1.2f;
+    img[4][3] = img[4][3] + 0.5f;
+    img(5,3) = img(5,3) + 0.258f;
     /** Imagen modificada de 6x10 vacía [solo capa de Rojo]*/
     printImagenPorConsola(img);
 

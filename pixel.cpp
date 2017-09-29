@@ -29,6 +29,7 @@ Pixel::Pixel(float redValue, float greenValue, float blueValue)
 float Pixel::calcularIntensidad()
 {
     intesidad = (red+green+blue)/3.0;
+    return intesidad;
 }
 
 void Pixel::setRed(float value)
@@ -80,40 +81,50 @@ bool Pixel::operator==(Pixel anotherPixel)
     float Gaux = (this->getGreen() - anotherPixel.getGreen());
     float Baux = (this->getBlue() - anotherPixel.getBlue());
 
-    if( ( Raux <= 0.2501f && Raux >= -0.2501) && ( Gaux <= 0.2501f && Gaux >= -0.2501) && ( Baux <= 0.2501f && Baux >= -0.2501))
+    if( ( Raux <= 0.2501f && Raux >= -0.2501) &&
+        ( Gaux <= 0.2501f && Gaux >= -0.2501) &&
+        ( Baux <= 0.2501f && Baux >= -0.2501))
         aux = true;
 
     return aux;
 }
 
-void Pixel::operator+(float deltaValue)
+Pixel Pixel::operator+(float deltaValue)
 {
-    red += deltaValue;
-    if( red>= 1.0)
-        red = 1.0;
+    Pixel aux = *this;
 
-    green += deltaValue;
-    if( green>= 1.0)
-        green = 1.0;
+    aux.red += deltaValue;
+    if( aux.red>= 1.0)
+        aux.red = 1.0;
 
-    blue += deltaValue;
-    if( blue>= 1.0 )
-        blue = 1.0;
+    aux.green += deltaValue;
+    if( aux.green>= 1.0)
+        aux.green = 1.0;
+
+    aux.blue += deltaValue;
+    if( aux.blue>= 1.0 )
+        aux.blue = 1.0;
+
+    return aux;
 }
 
-void Pixel::operator-(float deltaValue)
+Pixel Pixel::operator-(float deltaValue)
 {
-    red -= deltaValue;
-    if( red<= 0)
-        red = 0;
+    Pixel aux = *this;
 
-    green -= deltaValue;
-    if( green<= 0)
-        green = 0;
+    aux.red -= deltaValue;
+    if( aux.red<= 0)
+        aux.red = 0;
 
-    blue -= deltaValue;
-    if( blue<= 0)
-        blue = 0;
+    aux.green -= deltaValue;
+    if( aux.green<= 0)
+        aux.green = 0;
+
+    aux.blue -= deltaValue;
+    if( aux.blue<= 0)
+        aux.blue = 0;
+
+    return aux;
 }
 
 

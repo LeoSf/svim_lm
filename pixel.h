@@ -104,7 +104,7 @@ public:
      * valores de RGB del pixel.
      * \param Valor del delta a incrementar.
      */
-    void operator+(float deltaValue);
+    Pixel operator+(float deltaValue);
     /*!
      * \brief Sobrecarga del operatorador - para la reducción del
      * brillo.
@@ -112,7 +112,7 @@ public:
      * valores de RGB del pixel.
      * \param Valor del delta a decrementar.
      */
-    void operator-(float deltaValue);
+    Pixel operator-(float deltaValue);
 
 
 };

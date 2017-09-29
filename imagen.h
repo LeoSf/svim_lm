@@ -98,9 +98,9 @@ public:
      * \param index
      * \return referencia al pixel.
      */
-//    Pixel & operator[](unsigned int index);
+    vector<Pixel> & operator[](unsigned int index);
 
-
+    ~Imagen();
 
 
 };

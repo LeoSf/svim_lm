@@ -108,11 +108,15 @@ Pixel & Imagen::operator()(unsigned int x, unsigned int y)
 {
     if( (x < xSizePx) && (y < ySizePx))
         return pixels[x][y];
+}
+
+Imagen::~Imagen()
+{
 
 }
 
-//Pixel & Imagen::operator[](unsigned int index)
-//{
-//    /** problema con la validación de índices*/
-//    return pixels[index];
-//}
+vector<Pixel> & Imagen::operator[](unsigned int index)
+{
+    /** problema con la validación de índices*/
+    return pixels[index];
+}
