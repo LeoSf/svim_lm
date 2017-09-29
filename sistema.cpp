@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "sistema.h"
 #include "pixel.h"
 #include "arhivadormif.h"
@@ -21,7 +22,7 @@ void Sistema::printImagenPorConsola(Imagen &img)
     for(unsigned int iy=0; iy<img.getYSizePx(); iy++)
     {
         for(unsigned int ix=0; ix<img.getXSizePx(); ix++)
-            cout << std::setprecision(N_DECIMALES)
+            cout << setprecision(N_DECIMALES)
                  << img(ix,iy).getRed() << " ";
         cout << endl;
     }
@@ -65,10 +66,9 @@ void Sistema::testArchivador()
     archiMif.loadImage(inFileName,img);
     printImagenPorConsola(img);
 
-    img.setPixel(0,0,pix);
-    img.setPixel(0,1,pix);
-    img.setPixel(0,2,pix);
-    img.setPixel(0,3,pix);
+    for(unsigned int iy=0; iy < img.getYSizePx(); ++iy)
+        img.setPixel(0,iy,pix);
+
     archiMif.saveImage(outFileName,img);
 
     archiMif.loadImage(outFileName,img2);

@@ -114,7 +114,7 @@ bool ArhivadorMIF::loadImage(string nombre, Imagen &img)
 
 }
 
-bool ArhivadorMIF::saveImage(std::string nombre, Imagen &img)
+bool ArhivadorMIF::saveImage(string nombre, Imagen &img)
 {
     bool result = false;
 
