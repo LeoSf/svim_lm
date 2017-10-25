@@ -90,7 +90,13 @@ void Sistema::testGraficador(int argc, char *argv[])
     Graficador graf;
 
     /** Imagen patrón para el test de Graficación */
-    string file = "patt02.mif";
+//    string file = "patt02.mif";
+//    string file = "patt02-n.mif";
+
+//    string file = "angio01-mod.mif";
+    string file = "mri02.mif";
+
+
 
     cout << "Prueba de graficación con OpenGL de una imagen \n";
     archiMif.loadImage(file,img);
